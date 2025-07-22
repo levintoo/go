@@ -12,8 +12,14 @@
         <div>
             <form method="post" action="/create-post">
                 <label for="title">Title</label>
+                {{ range .errors.title }}
+                <mark class="error">{{ . }}</mark>
+                {{ end }}
                 <input type="text" name="title" id="title">
                 <label for="content">Content</label>
+                {{ range .errors.content }}
+                <mark>{{ . }}</mark>
+                {{ end }}
                 <textarea name="content" id="content"></textarea>
                 <button type="submit">Create</button>
             </form>
